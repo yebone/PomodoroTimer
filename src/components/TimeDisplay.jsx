@@ -1,36 +1,32 @@
-import React, { useState } from "react";
-import { useInterval } from "../hooks/countdown";
+import React, { useEffect, useState } from "react";
+import { useInterval } from "../hooks/useInterval";
 import { useGlobalState } from "../globalState/StateContext";
+import { secToTimeFormatter } from "../modules/secToTimeFormatter";
 
 const TimeDisplay = () => {
-  const { countDown, timeAmount } = useGlobalState();
+  const { countDown, dispatch, modes, currentMode, useEffectLoader } =
+    useGlobalState();
+  const [count, setCount] = useState(modes[currentMode] * 60);
 
-  const [count, setCount] = useState(timeAmount);
+  //useEffectLoader to activate useeffect for reset btn,
+  useEffect(() => {
+    setCount(modes[currentMode] * 60);
+  }, [currentMode, useEffectLoader]);
 
   //Custom hook use to countdown the time!
   useInterval(
     () => {
-      setCount((count) => count - 1);
+      if (count > 0) {
+        setCount((count) => count - 1);
+      } else {
+        dispatch({ type: "FINISH" });
+      }
     },
     1000,
     countDown
   );
 
-  function convertSecondsToTime(given_seconds) {
-    const hours = Math.floor(given_seconds / 3600);
-    const minutes = Math.floor((given_seconds - hours * 3600) / 60);
-    const seconds = given_seconds - hours * 3600 - minutes * 60;
-
-    const arr = hours === 0 ? [minutes, seconds] : [hours, minutes, seconds];
-
-    return arr.map((item) => item.toString().padStart(2, "0")).join(":");
-  }
-
-  return (
-    <div>
-      <h1 className=" text-7xl font-bold">{convertSecondsToTime(count)}</h1>
-    </div>
-  );
+  return <h1 className=" text-7xl font-bold">{secToTimeFormatter(count)}</h1>;
 };
 
 export default TimeDisplay;
