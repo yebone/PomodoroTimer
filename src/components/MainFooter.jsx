@@ -8,9 +8,9 @@ const MainFooter = () => {
     <div className=" flex gap-3 justify-center items-center">
       <button
         onClick={() => dispatch({ type: "COUNTDOWN", payload: !countDown })}
-        className="px-6 font-bold py-2 border-2 rounded-3xl border-white "
+        className={`px-6 font-bold py-2 border-4 rounded-3xl border-white text-2xl`}
       >
-        {countDown ? "Pause" : "start"}
+        {countDown ? "Pause" : "Start"}
       </button>
       <button
         onClick={() => dispatch({ type: "RESET", payload: !useEffectLoader })}
