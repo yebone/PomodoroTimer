@@ -6,13 +6,19 @@ export const StateContext = createContext();
 export const StateContextProvider = ({ children }) => {
   const initialState = {
     countDown: false,
-    modes: { pomodoro: 25, shortBreak: 5, longBreak: 15 },
+    modes: { pomodoro: 1, shortBreak: 1, longBreak: 1 },
     currentMode: "pomodoro",
-    // timeAmount: 1800,
     useEffectLoader: true, //For reset btn, in order to use as a dependency in useEffect in timeDisplay components.
-
-    //setting
     settingToggle: false,
+    rounds: 4,
+    modeNames: ["pomodoro", "shortBreak", "longBreak"],
+    alarmNames: [
+      { name: "alarm1", value: "alarm1" },
+      { name: "clockAlarm", value: "clockAlarm" },
+      { name: "Bird", value: "bird" },
+    ],
+    currentAlarm: "bird",
+    alarmVolume: 0.5,
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);

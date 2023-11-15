@@ -2,14 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useInterval } from "../hooks/useInterval";
 import { useGlobalState } from "../globalState/StateContext";
 import { secToTimeFormatter } from "../modules/secToTimeFormatter";
-import useSound from "use-sound";
-import alarmClock from "../assets/sound/alarm1.mp3";
 
 const TimeDisplay = () => {
-  const { countDown, dispatch, modes, currentMode, useEffectLoader } =
-    useGlobalState();
+  const {
+    countDown,
+    dispatch,
+    modes,
+    currentMode,
+    useEffectLoader,
+    currentAlarm,
+  } = useGlobalState();
   const [count, setCount] = useState(modes[currentMode] * 60);
-  const [play] = useSound(alarmClock);
 
   //useEffectLoader to activate useeffect for reset btn,
   useEffect(() => {
@@ -22,19 +25,20 @@ const TimeDisplay = () => {
       if (count > 0) {
         setCount((count) => count - 1);
       } else {
-        dispatch({ type: "FINISH" });
+        const alarm = new Audio(`/src/assets/sounds/${currentAlarm}.mp3`);
+        alarm.play();
+        dispatch({
+          type: "FINISH",
+          payload:
+            Object.keys(modes)[Object.keys(modes).indexOf(currentMode) + 1],
+        });
       }
     },
     1000,
     countDown
   );
 
-  return (
-    <>
-      <h1 className=" text-7xl font-bold">{secToTimeFormatter(count)}</h1>
-      {/* <button onClick={play}>play sound</button> */}
-    </>
-  );
+  return <h1 className=" text-7xl font-bold">{secToTimeFormatter(count)}</h1>;
 };
 
 export default TimeDisplay;
