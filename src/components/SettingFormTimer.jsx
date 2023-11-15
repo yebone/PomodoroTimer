@@ -12,7 +12,7 @@ const SettingFormTimer = () => {
       </div>
       <div>
         <h1 className="text-1xl font-bold">Time (minutes)</h1>
-        <div className="flex justify-around ">
+        <div className="flex justify-between ">
           <div className=" flex flex-col gap-1">
             <label
               htmlFor="pomodoro"
@@ -25,6 +25,7 @@ const SettingFormTimer = () => {
               id="pomodoro"
               name="pomodoro"
               defaultValue={modes.pomodoro}
+              min="0"
               className=" w-[50%] p-2 bg-[#efefef] rounded-md "
             />
           </div>
@@ -40,6 +41,7 @@ const SettingFormTimer = () => {
               id="shortBreak"
               name="shortBreak"
               defaultValue={modes.shortBreak}
+              min="0"
               className=" w-[50%] p-2 bg-[#efefef] rounded-md "
             />
           </div>
@@ -55,6 +57,7 @@ const SettingFormTimer = () => {
               id="longBreak"
               name="longBreak"
               defaultValue={modes.longBreak}
+              min="0"
               className=" w-[50%] p-2 bg-[#efefef] rounded-md "
             />
           </div>

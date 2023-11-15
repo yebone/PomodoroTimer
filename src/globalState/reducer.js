@@ -3,7 +3,7 @@ export const reducer = (state, { type, payload }) => {
     case "COUNTDOWN":
       return { ...state, countDown: payload };
     case "FINISH":
-      return { ...state, countDown: false };
+      return { ...state, countDown: false, currentMode: payload };
     case "MODE":
       return { ...state, currentMode: payload, countDown: false };
     case "RESET":
@@ -18,6 +18,8 @@ export const reducer = (state, { type, payload }) => {
         ...state,
         modes: { pomodoro, shortBreak, longBreak },
         useEffectLoader: !state.useEffectLoader,
+        currentAlarm: payload.alarmSound,
+        alarmVolume: payload.alarmVolume / 100,
       };
     default:
       return state;
