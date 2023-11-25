@@ -38,7 +38,12 @@ const TimeDisplay = () => {
     countDown
   );
 
-  return <h1 className=" text-7xl font-bold">{secToTimeFormatter(count)}</h1>;
+  return (
+    <div>
+      <h1 className=" text-7xl font-bold">{secToTimeFormatter(count)}</h1>
+      <div></div>
+    </div>
+  );
 };
 
 export default TimeDisplay;
