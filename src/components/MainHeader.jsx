@@ -2,6 +2,7 @@ import React from "react";
 import MainHeaderBtn from "./MainHeaderBtn";
 
 const MainHeader = () => {
+  console.log("mainheader");
   const buttons = [
     { name: "Pomodoro", value: "pomodoro" },
     { name: "Short Break", value: "shortBreak" },

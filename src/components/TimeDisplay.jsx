@@ -37,11 +37,19 @@ const TimeDisplay = () => {
     1000,
     countDown
   );
+  useEffect(() => {
+    document.title = `${secToTimeFormatter(count)} - ${
+      currentMode === "pomodoro" ? "pomodoro timer" : "Time for a break!"
+    } `;
+  }, [count, currentMode]);
 
   return (
     <div>
       <h1 className=" text-7xl font-bold">{secToTimeFormatter(count)}</h1>
-      <div></div>
+
+      {/* <div className="h-1 w-[100vw] bg-gray-300 rounded-md">
+        <div></div>
+      </div> */}
     </div>
   );
 };
