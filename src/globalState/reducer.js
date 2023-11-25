@@ -21,6 +21,9 @@ export const reducer = (state, { type, payload }) => {
         currentAlarm: payload.alarmSound,
         alarmVolume: payload.alarmVolume / 100,
       };
+
+    case "LOGINPAGETOGGLE":
+      return { ...state, logInPageToggle: payload };
     default:
       return state;
   }

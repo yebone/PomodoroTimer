@@ -9,7 +9,6 @@ export const StateContextProvider = ({ children }) => {
     modes: { pomodoro: 1, shortBreak: 1, longBreak: 1 },
     currentMode: "pomodoro",
     useEffectLoader: true, //For reset btn, in order to use as a dependency in useEffect in timeDisplay components.
-    settingToggle: false,
     rounds: 4,
     modeNames: ["pomodoro", "shortBreak", "longBreak"],
     alarmNames: [
@@ -19,6 +18,9 @@ export const StateContextProvider = ({ children }) => {
     ],
     currentAlarm: "bird",
     alarmVolume: 0.5,
+    //model box
+    settingToggle: false,
+    logInPageToggle: false,
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
