@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useInterval } from "../hooks/useInterval";
 import { useGlobalState } from "../globalState/StateContext";
 import { secToTimeFormatter } from "../modules/secToTimeFormatter";
+import ProgressBar from "./smallComponents/ProgressBar";
 
 const TimeDisplay = () => {
   const {
@@ -43,13 +44,14 @@ const TimeDisplay = () => {
     } `;
   }, [count, currentMode]);
 
+  //calucating progress - 100%[total] -[subtract from 100% to get progress] (countdown[second] * 100%) / totaltime * 60 [total time from global state is in second]
+  const progress = 100 - (count * 100) / (modes[currentMode] * 60);
+
   return (
-    <div>
+    <div className=" w-[100vw]  flex flex-col items-center gap-3">
       <h1 className=" text-7xl font-bold">{secToTimeFormatter(count)}</h1>
 
-      {/* <div className="h-1 w-[100vw] bg-gray-300 rounded-md">
-        <div></div>
-      </div> */}
+      <ProgressBar progress={progress} />
     </div>
   );
 };
