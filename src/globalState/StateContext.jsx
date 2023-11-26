@@ -21,6 +21,7 @@ export const StateContextProvider = ({ children }) => {
     //model box
     settingToggle: false,
     logInPageToggle: false,
+    signUpFormToggle: false,
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
