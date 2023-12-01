@@ -1,7 +1,7 @@
 import React from "react";
 import { GrPowerReset } from "react-icons/gr";
 import { AiFillSetting } from "react-icons/ai";
-import { useGlobalState } from "../globalState/StateContext";
+import { useGlobalState } from "../../globalState/StateContext";
 const MainFooter = () => {
   const { countDown, dispatch, useEffectLoader } = useGlobalState();
   return (

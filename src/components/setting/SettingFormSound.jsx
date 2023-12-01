@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineSound } from "react-icons/ai";
-import { useGlobalState } from "../globalState/StateContext";
+import { useGlobalState } from "../../globalState/StateContext";
 
 const SettingFormSound = () => {
   const { alarmNames, alarmVolume, currentAlarm } = useGlobalState();

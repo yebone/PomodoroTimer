@@ -1,6 +1,6 @@
 import React from "react";
 import { FcAlarmClock } from "react-icons/fc";
-import { useGlobalState } from "../globalState/StateContext";
+import { useGlobalState } from "../../globalState/StateContext";
 
 const SettingFormTimer = () => {
   const { modes } = useGlobalState();

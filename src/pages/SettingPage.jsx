@@ -1,5 +1,5 @@
 import React from "react";
-import Setting from "../components/Setting";
+import Setting from "../components/setting/Setting";
 import { useGlobalState } from "../globalState/StateContext";
 
 const SettingPage = () => {
