@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useInterval } from "../hooks/useInterval";
-import { useGlobalState } from "../globalState/StateContext";
-import { secToTimeFormatter } from "../modules/secToTimeFormatter";
-import ProgressBar from "./smallComponents/ProgressBar";
+import { useInterval } from "../../hooks/useInterval";
+import { useGlobalState } from "../../globalState/StateContext";
+import { secToTimeFormatter } from "../../modules/secToTimeFormatter";
+import ProgressBar from "../smallComponents/ProgressBar";
 
 const TimeDisplay = () => {
   const {

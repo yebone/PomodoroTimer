@@ -1,5 +1,5 @@
 import React from "react";
-import MainHeaderBtn from "./MainHeaderBtn";
+import MainHeaderBtn from "../smallComponents/MainHeaderBtn";
 
 const MainHeader = () => {
   const buttons = [

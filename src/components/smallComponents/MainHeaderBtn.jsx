@@ -1,5 +1,5 @@
 import React from "react";
-import { useGlobalState } from "../globalState/StateContext";
+import { useGlobalState } from "../../globalState/StateContext";
 
 const MainHeaderBtn = ({ name, value }) => {
   const { dispatch, currentMode } = useGlobalState();
