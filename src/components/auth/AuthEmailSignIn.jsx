@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../config/firebase";
 
-const AuthEmailLogin = () => {
+const AuthEmailSignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // console.log(auth?.currentUser?.email, auth?.currentUser);
@@ -49,15 +49,8 @@ const AuthEmailLogin = () => {
       >
         Log in with Email
       </button>
-
-      <div className="flex justify-between">
-        <h1 className="text-gray-400"> Do not have an account?</h1>
-        <button className="underline text-gray-700 font-semibold">
-          Create account
-        </button>
-      </div>
     </div>
   );
 };
 
-export default AuthEmailLogin;
+export default AuthEmailSignIn;

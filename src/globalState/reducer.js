@@ -24,6 +24,8 @@ export const reducer = (state, { type, payload }) => {
 
     case "LOGINPAGETOGGLE":
       return { ...state, logInPageToggle: payload };
+    case "SIGNUPFORMTOGGLE":
+      return { ...state, signUpFormToggle: payload };
     default:
       return state;
   }

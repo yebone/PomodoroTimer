@@ -1,9 +1,10 @@
 import React from "react";
 import { useGlobalState } from "../globalState/StateContext";
-import Auth from "../components/auth/Auth";
+import AuthSignUpForm from "../components/auth/AuthSignUpForm";
+import AuthSignInForm from "../components/auth/AuthSignInForm";
 
 const LoginPage = () => {
-  const { logInPageToggle } = useGlobalState();
+  const { logInPageToggle, signUpFormToggle } = useGlobalState();
 
   return (
     <div
@@ -11,7 +12,7 @@ const LoginPage = () => {
         logInPageToggle ? "block" : "hidden"
       } fixed w-full  flex justify-center `}
     >
-      <Auth />
+      {signUpFormToggle ? <AuthSignUpForm /> : <AuthSignInForm />}
     </div>
   );
 };
