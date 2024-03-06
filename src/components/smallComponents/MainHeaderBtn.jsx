@@ -10,9 +10,11 @@ const MainHeaderBtn = ({ name, value }) => {
       }
       name={value}
       value={value}
-      className={`${
-        currentMode === value ? "font-bold border-4 " : "border-2"
-      } px-3  py-1  rounded-3xl border-white  text-lg`}
+      className={`flex text-center items-center justify-center ${
+        currentMode === value
+          ? "font-semibold border-4 "
+          : "font-normal border-2"
+      } px-3  py-[8px]  rounded-3xl border-white  `}
     >
       {name}
     </button>

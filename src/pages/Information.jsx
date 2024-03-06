@@ -3,7 +3,7 @@ import { GiTomato } from "react-icons/gi";
 
 const Information = () => {
   return (
-    <section className=" bg-white p-4 gap-7 flex flex-col max-w-lg mx-auto">
+    <section className="flex flex-col gap-y-2 bg-white">
       <h1 className=" mt-3 text-2xl font-bold">
         An online Pomodoro Timer to boost your productivity
       </h1>

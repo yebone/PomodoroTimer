@@ -8,7 +8,7 @@ const SettingPage = () => {
     <div
       className={` ${
         settingToggle ? "block" : "hidden"
-      } fixed w-full  flex justify-center `}
+      }  w-full h-screen z-40 absolute bg-slate-500  flex items-center justify-center `}
     >
       <Setting />
     </div>
