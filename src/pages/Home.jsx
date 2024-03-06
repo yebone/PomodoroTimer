@@ -7,7 +7,7 @@ import MenuBar from "../components/MenuBar";
 
 const Home = () => {
   return (
-    <div className=" bg-slate-200 h-[100vh] relative ">
+    <div className="relative  w-full mx-auto   flex flex-col items-center  bg-slate-200 h-[100vh]  ">
       {/* Model box */}
       <SettingPage />
       <LoginPage />

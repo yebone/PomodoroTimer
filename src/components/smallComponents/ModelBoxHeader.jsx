@@ -5,7 +5,7 @@ import { useGlobalState } from "../../globalState/StateContext";
 const ModelBoxHeader = ({ header, dispatchType, dispatchPayload }) => {
   const { dispatch } = useGlobalState();
   return (
-    <div className=" flex justify-between p-4 items-center ">
+    <div className=" flex justify-between p-3 items-center ">
       <h1 className=" text-lg font-semibold">{header}</h1>
       <button
         onClick={() =>

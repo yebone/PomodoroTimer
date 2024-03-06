@@ -48,7 +48,7 @@ const TimeDisplay = () => {
   const progress = 100 - (count * 100) / (modes[currentMode] * 60);
 
   return (
-    <div className=" w-[100vw]  flex flex-col items-center gap-3">
+    <div className=" w-full h-fit  flex flex-col items-center gap-3">
       <h1 className=" text-7xl font-bold">{secToTimeFormatter(count)}</h1>
 
       <ProgressBar progress={progress} />
