@@ -6,7 +6,7 @@ export const StateContext = createContext();
 export const StateContextProvider = ({ children }) => {
   const initialState = {
     countDown: false,
-    modes: { pomodoro: 1, shortBreak: 1, longBreak: 1 },
+    modes: { pomodoro: 25, shortBreak: 5, longBreak: 15 },
     currentMode: "pomodoro",
     useEffectLoader: true, //For reset btn, in order to use as a dependency in useEffect in timeDisplay components.
     rounds: 4,

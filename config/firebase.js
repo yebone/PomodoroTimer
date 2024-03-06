@@ -25,3 +25,8 @@ export const providerGoogle = new GoogleAuthProvider();
 
 //db
 export const db = getFirestore(app);
+
+// db.collection("users").add({
+//   first: "ye",
+//   last: "myat",
+// });

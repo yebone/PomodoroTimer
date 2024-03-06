@@ -1,15 +1,26 @@
 import React from "react";
 import SettingFormTimer from "./SettingFormTimer";
 import SettingFormSound from "./SettingFormSound";
+import { auth, db } from "../../../config/firebase";
+import { doc, setDoc } from "firebase/firestore/lite";
 
 const SettingForm = ({ dispatch }) => {
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson);
 
     dispatch({ type: "UPDATEBYSETTING", payload: formJson });
+
+    if (auth?.currentUser?.uid) {
+      await setDoc(
+        doc(db, "users", auth.currentUser.uid),
+        {
+          ...formJson,
+        },
+        { merge: true }
+      );
+    }
   };
   return (
     <div>
