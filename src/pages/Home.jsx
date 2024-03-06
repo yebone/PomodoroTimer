@@ -2,8 +2,8 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Main from "../components/main/Main";
 import SettingPage from "./SettingPage";
-import Navbar2 from "../components/Navbar2";
 import LoginPage from "./LoginPage";
+import MenuBar from "../components/MenuBar";
 
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
 
       {/* Normal components */}
       <Navbar />
-      <Navbar2 />
+      <MenuBar />
       <Main />
     </div>
   );

@@ -5,7 +5,7 @@ import { auth } from "../../../config/firebase";
 const AuthEmailSignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // console.log(auth?.currentUser?.email, auth?.currentUser);
+  console.log(auth?.currentUser?.email, auth?.currentUser);
 
   const logInWithEmail = async () => {
     try {

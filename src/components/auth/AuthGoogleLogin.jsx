@@ -6,6 +6,7 @@ const AuthGoogleLogin = () => {
     try {
       await signInWithPopup(auth, providerGoogle);
     } catch (err) {
+      console.log("error");
       console.log(err);
     }
   };
