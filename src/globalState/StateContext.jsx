@@ -22,6 +22,8 @@ export const StateContextProvider = ({ children }) => {
     settingToggle: false,
     logInPageToggle: false,
     signUpFormToggle: false,
+    //userProfile
+    profilePopUpMenuToggle: false,
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
