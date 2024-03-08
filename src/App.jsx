@@ -4,7 +4,7 @@ import Information from "./pages/Information";
 
 function App() {
   return (
-    <div className="w-full h-full container mx-auto  ">
+    <div className="w-full h-full  ">
       <Home />
       <Information />
     </div>
