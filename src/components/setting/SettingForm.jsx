@@ -1,15 +1,30 @@
 import React from "react";
 import SettingFormTimer from "./SettingFormTimer";
 import SettingFormSound from "./SettingFormSound";
+import { auth, db } from "../../../config/firebase";
+import { doc, setDoc } from "firebase/firestore/lite";
 
 const SettingForm = ({ dispatch }) => {
-  const onSubmitHandler = (e) => {
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson);
 
     dispatch({ type: "UPDATEBYSETTING", payload: formJson });
+    const { pomodoro, shortBreak, longBreak, alarmSound, alarmVolume } =
+      formJson;
+    console.log(formJson);
+    if (auth?.currentUser?.uid) {
+      await setDoc(
+        doc(db, "users", auth.currentUser.uid),
+        {
+          modes: { pomodoro, shortBreak, longBreak },
+          alarmSound,
+          alarmVolume,
+        },
+        { merge: true }
+      );
+    }
   };
   return (
     <div>
