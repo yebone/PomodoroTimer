@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "../../../config/firebase";
-import { doc } from "firebase/firestore/lite";
+import { auth } from "../../../config/firebase";
+
+import { useGlobalState } from "../../globalState/StateContext";
 
 const AuthEmailSignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // console.log(auth?.currentUser?.email, auth?.currentUser);
-
-  if (auth?.currentUser) {
-  }
+  const { dispatch } = useGlobalState();
 
   const logInWithEmail = async () => {
     try {

@@ -11,12 +11,16 @@ const SettingForm = ({ dispatch }) => {
     const formJson = Object.fromEntries(formData.entries());
 
     dispatch({ type: "UPDATEBYSETTING", payload: formJson });
-
+    const { pomodoro, shortBreak, longBreak, alarmSound, alarmVolume } =
+      formJson;
+    console.log(formJson);
     if (auth?.currentUser?.uid) {
       await setDoc(
         doc(db, "users", auth.currentUser.uid),
         {
-          ...formJson,
+          modes: { pomodoro, shortBreak, longBreak },
+          alarmSound,
+          alarmVolume,
         },
         { merge: true }
       );
