@@ -5,10 +5,10 @@ import { useGlobalState } from "../../globalState/StateContext";
 const MainFooter = () => {
   const { countDown, dispatch, useEffectLoader } = useGlobalState();
   return (
-    <div className=" flex gap-3 justify-center items-center">
+    <div className="w-full h-fit flex gap-x-8 justify-center items-center">
       <button
         onClick={() => dispatch({ type: "COUNTDOWN", payload: !countDown })}
-        className={`px-6 font-bold py-2 border-4 rounded-3xl border-white text-2xl`}
+        className={`px-6 font-semibold py-2 border-4 rounded-3xl border-white text-2xl`}
       >
         {countDown ? "Pause" : "Start"}
       </button>

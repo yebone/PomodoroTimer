@@ -8,9 +8,7 @@ const Setting = () => {
   const { dispatch } = useGlobalState();
 
   return (
-    <div
-      className={`relative max-w-md w-full bg-white rounded-lg block top-[75px] px-3`}
-    >
+    <div className={` max-w-md w-full h-fit block  bg-white rounded-lg   px-3`}>
       <ModelBoxHeader
         header={"Setting"}
         dispatchType={"SETTINGTOGGLE"}

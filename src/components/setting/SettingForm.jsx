@@ -31,7 +31,7 @@ const SettingForm = ({ dispatch }) => {
       <form method="post" onSubmit={(e) => onSubmitHandler(e)}>
         <SettingFormTimer />
         <SettingFormSound />
-        <div className=" p-4 text-end">
+        <div className=" p-3 text-end">
           <button
             type="submit"
             onClick={() => dispatch({ type: "SETTINGTOGGLE", payload: false })}
