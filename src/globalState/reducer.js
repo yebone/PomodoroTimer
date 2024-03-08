@@ -26,6 +26,18 @@ export const reducer = (state, { type, payload }) => {
       return { ...state, logInPageToggle: payload };
     case "SIGNUPFORMTOGGLE":
       return { ...state, signUpFormToggle: payload };
+
+    //userProfile
+    case "PROFILEPOPUPMENUTOGGLE":
+      return { ...state, profilePopUpMenuToggle: payload };
+
+    case "UPDATEUSERPREFERENCES":
+      return {
+        ...state,
+        modes: payload.modes,
+        currentAlarm: payload.alarmSound,
+        alarmVolume: payload.alarmVolume,
+      };
     default:
       return state;
   }

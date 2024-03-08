@@ -18,7 +18,7 @@ const TimeDisplay = () => {
   //useEffectLoader to activate useeffect for reset btn,
   useEffect(() => {
     setCount(modes[currentMode] * 60);
-  }, [currentMode, useEffectLoader]);
+  }, [currentMode, useEffectLoader, modes]);
 
   //Custom hook use to countdown the time!
   useInterval(

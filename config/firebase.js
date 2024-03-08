@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore/lite";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -21,3 +22,18 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const providerGoogle = new GoogleAuthProvider();
+
+//db
+export const db = getFirestore(app);
+
+// import { doc, getDoc } from "firebase/firestore";
+
+// const docRef = doc(db, "users", auth?.currentUser?.uid);
+// const docSnap = await getDoc(docRef);
+
+// if (docSnap.exists()) {
+//   console.log("Document data:", docSnap.data());
+// } else {
+//   // docSnap.data() will be undefined in this case
+//   console.log("No such document!");
+// }
