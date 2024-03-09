@@ -28,6 +28,7 @@ export const StateContextProvider = ({ children }) => {
     settingToggle: false,
     logInPageToggle: false,
     signUpFormToggle: false,
+    addTaskToggle: false,
     //userProfile
     profilePopUpMenuToggle: false,
   };
@@ -35,14 +36,14 @@ export const StateContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   //fetching data(user preferences) from fire store and update at global state
-  useEffect(() => {
-    onAuthStateChanged(auth, async (user) => {
-      const data = await fetchDataFromFirestore("users", user.uid);
-      if (data) {
-        dispatch({ type: "UPDATEUSERPREFERENCES", payload: data });
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, async (user) => {
+  //     const data = await fetchDataFromFirestore("users", user.uid);
+  //     if (data) {
+  //       dispatch({ type: "UPDATEUSERPREFERENCES", payload: data });
+  //     }
+  //   });
+  // }, []);
 
   const data = { ...state, dispatch };
   return <StateContext.Provider value={data}>{children}</StateContext.Provider>;

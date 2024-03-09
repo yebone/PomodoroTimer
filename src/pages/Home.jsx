@@ -4,6 +4,7 @@ import Main from "../components/main/Main";
 import SettingPage from "./SettingPage";
 import LoginPage from "./LoginPage";
 import MenuBar from "../components/MenuBar";
+import TasksMain from "../components/tasks/TasksMain";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <Navbar />
       <MenuBar />
       <Main />
+      <TasksMain />
     </div>
   );
 };
