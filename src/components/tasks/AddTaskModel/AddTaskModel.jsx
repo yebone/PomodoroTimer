@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import AddTaskModelForm from "./AddTaskModelForm";
+import { useGlobalState } from "../../../globalState/StateContext";
 
 const AddTaskModel = () => {
-  const [targetedHourtoggle, setTargetedHourToggle] = useState(false);
+  const { dispatch, addTaskModelToggle } = useGlobalState();
+  console.log(addTaskModelToggle);
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -14,78 +17,33 @@ const AddTaskModel = () => {
     <form
       method="post"
       onSubmit={(e) => onSubmitHandler(e)}
-      className="block w-full absolute bg-white p-5 rounded-lg"
+      className={`${
+        addTaskModelToggle ? "block" : "hidden"
+      } w-full absolute bg-white rounded-lg`}
     >
-      {/* input-The name of the work or project */}
-      <div>
-        <input
-          type="text"
-          id="nameOfWork"
-          name="nameOfWork"
-          placeholder="What are you working on?"
-          className="placeholder-opacity-50 placeholder:text-gray-300 placeholder:text-xl font-semibold text-gray-500 outline-none "
-        />
-      </div>
-
-      {/* Three main Radio options */}
-      <div>
-        {/* 1 */}
-        <label htmlFor="withoutTargetedHours" className="flex gap-2">
-          <input
-            name="TypeOfWork"
-            type="radio"
-            id="withoutTargetedHours"
-            value={"withoutTargetedHours"}
-            onChange={(e) => setTargetedHourToggle(false)}
-          />
-          Task with no targeted time?
-        </label>
-        {/* 2 */}
-        <div>
-          <label htmlFor="withTargetedHours" className="flex gap-2">
-            <input
-              type="radio"
-              name="TypeOfWork"
-              id="withTargetedHours"
-              value={"withTargetedHour"}
-              onChange={(e) => setTargetedHourToggle(true)}
-            />
-            Task with targeted time?
-          </label>
-          <label
-            htmlFor="hours"
-            className={` ${
-              targetedHourtoggle ? "block" : "hidden"
-            } ps-10 flex items-center gap-2`}
-          >
-            <h2>how many hours? - </h2>
-            <input
-              type="number"
-              name="hours"
-              id="hours"
-              min={1}
-              className=" outline-none w-16 p-1 rounded-md "
-            />
-            hours
-          </label>
-        </div>
-        {/* 3 */}
-        <div>
-          <label htmlFor="withFixedWork" className="flex gap-2">
-            <input
-              type="radio"
-              name="TypeOfWork"
-              id="withFixedWork"
-              value={"withFixedWork"}
-              onChange={(e) => setTargetedHourToggle(false)}
-            />
-            Task with fixed project,book,youtube,lecture?
-          </label>
-        </div>
-      </div>
-      <div>
-        <button type="submit">Save</button>
-      </div>
+      <section className="p-5">
+        <AddTaskModelForm />
+      </section>
+      {/* bottom section */}
+      <section className=" w-full h-16 p-3   bg-gray-400 flex gap-2 justify-end border rounded-b-lg ">
+        <button
+          className=" "
+          onClick={() =>
+            dispatch({ type: "ADDTASKMODELTOGGLE", payload: false })
+          }
+        >
+          Cancel
+        </button>
+        <button
+          className=" px-5 py-2 bg-gray-700 text-white border rounded-md border-transparent"
+          type="submit"
+          onClick={() =>
+            dispatch({ type: "ADDTASKMODELTOGGLE", payload: false })
+          }
+        >
+          Save
+        </button>
+      </section>
     </form>
   );
 };

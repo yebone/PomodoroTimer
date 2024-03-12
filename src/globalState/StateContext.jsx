@@ -28,7 +28,7 @@ export const StateContextProvider = ({ children }) => {
     settingToggle: false,
     logInPageToggle: false,
     signUpFormToggle: false,
-    addTaskToggle: false,
+    addTaskModelToggle: false,
     //userProfile
     profilePopUpMenuToggle: false,
   };
