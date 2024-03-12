@@ -16,14 +16,20 @@ const AddTaskModel = () => {
       onSubmit={(e) => onSubmitHandler(e)}
       className="block w-full absolute bg-white p-5 rounded-lg"
     >
-      <input
-        type="text"
-        id="nameOfWork"
-        name="nameOfWork"
-        placeholder="What are you working on?"
-        className="placeholder-opacity-50 placeholder:text-gray-300 placeholder:text-xl font-semibold text-gray-500 outline-none "
-      />
+      {/* input-The name of the work or project */}
       <div>
+        <input
+          type="text"
+          id="nameOfWork"
+          name="nameOfWork"
+          placeholder="What are you working on?"
+          className="placeholder-opacity-50 placeholder:text-gray-300 placeholder:text-xl font-semibold text-gray-500 outline-none "
+        />
+      </div>
+
+      {/* Three main Radio options */}
+      <div>
+        {/* 1 */}
         <label htmlFor="withoutTargetedHours" className="flex gap-2">
           <input
             name="TypeOfWork"
@@ -32,8 +38,9 @@ const AddTaskModel = () => {
             value={"withoutTargetedHours"}
             onChange={(e) => setTargetedHourToggle(false)}
           />
-          Without targeted hours?
+          Task with no targeted time?
         </label>
+        {/* 2 */}
         <div>
           <label htmlFor="withTargetedHours" className="flex gap-2">
             <input
@@ -43,7 +50,7 @@ const AddTaskModel = () => {
               value={"withTargetedHour"}
               onChange={(e) => setTargetedHourToggle(true)}
             />
-            With targeted hours?
+            Task with targeted time?
           </label>
           <label
             htmlFor="hours"
@@ -60,6 +67,19 @@ const AddTaskModel = () => {
               className=" outline-none w-16 p-1 rounded-md "
             />
             hours
+          </label>
+        </div>
+        {/* 3 */}
+        <div>
+          <label htmlFor="withFixedWork" className="flex gap-2">
+            <input
+              type="radio"
+              name="TypeOfWork"
+              id="withFixedWork"
+              value={"withFixedWork"}
+              onChange={(e) => setTargetedHourToggle(false)}
+            />
+            Task with fixed project,book,youtube,lecture?
           </label>
         </div>
       </div>
