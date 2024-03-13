@@ -38,6 +38,10 @@ export const reducer = (state, { type, payload }) => {
         currentAlarm: payload.alarmSound,
         alarmVolume: payload.alarmVolume,
       };
+
+    //tasks
+    case "ADDTASKMODELTOGGLE":
+      return { ...state, addTaskModelToggle: payload };
     default:
       return state;
   }
